@@ -9,17 +9,17 @@
  * that starts the plugin.
  *
  * @link              https://github.com/oxygensmith
- * @since             1.0.0
+ * @since             0.1
  * @package           Wp_Get_Remote_Url_Info
  *
  * @wordpress-plugin
  * Plugin Name:       Get Remote URL Info
  * Plugin URI:        https://github.com/oxygensmith/wp-remote-url-info
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
+ * Version:           0.1
  * Author:            Rob Butz
  * Author URI:        https://github.com/oxygensmith
- * License:           GPL-2.0+
+ * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wp-get-remote-url-info
  * Domain Path:       /languages
