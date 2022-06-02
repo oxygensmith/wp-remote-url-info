@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Get Remote URL Info
  * Plugin URI:        https://github.com/oxygensmith/wp-remote-url-info
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Custom fieldtype and mass updating to store info about remote URLs (such as a page title).
  * Version:           0.1
  * Author:            Rob Butz
  * Author URI:        https://github.com/oxygensmith
