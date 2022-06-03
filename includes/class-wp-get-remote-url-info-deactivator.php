@@ -12,6 +12,7 @@
 
 /**
  * Fired during plugin deactivation.
+ * In Toptal example, this is includes/class-toptal-save-deactivator.php 
  *
  * This class defines all code necessary to run during the plugin's deactivation.
  *

@@ -12,7 +12,8 @@
 
 /**
  * Fired during plugin activation.
- *
+ * In Toptal example, this is includes/class-toptal-save-activator.php 
+ * 
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0

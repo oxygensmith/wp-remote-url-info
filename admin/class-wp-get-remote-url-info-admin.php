@@ -25,7 +25,7 @@ class Wp_Get_Remote_Url_Info_Admin {
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
@@ -34,7 +34,7 @@ class Wp_Get_Remote_Url_Info_Admin {
 	/**
 	 * The version of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
@@ -57,7 +57,7 @@ class Wp_Get_Remote_Url_Info_Admin {
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1
 	 */
 	public function enqueue_styles() {
 
@@ -72,7 +72,9 @@ class Wp_Get_Remote_Url_Info_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
+        if ( 'tools_page_get-remote-url-info-save' != $hook ) {
+			return;
+		}
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-get-remote-url-info-admin.css', array(), $this->version, 'all' );
 
 	}
@@ -95,8 +97,38 @@ class Wp_Get_Remote_Url_Info_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
+		if ( 'tools_page_get-remote-url-info-save' != $hook ) {
+			return;
+		}
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-get-remote-url-info-admin.js', array( 'jquery' ), $this->version, false );
+
+	}
+
+		/**
+	 * Register the settings page for the admin area.
+	 *
+	 * @since    0.1
+	 */
+	public function register_settings_page() {
+		// Create our settings page as a submenu page.
+		add_submenu_page(
+			'tools.php',                             // parent slug
+			__( 'Get Remote URL Info Options', 'get-remote-url-info-save' ), // page title
+			__( 'Get Remote URL Info', 'get-remote-url-info-save' ), // menu title
+			'manage_options',                        // capability
+			'get-remote-url-info-save',              // menu_slug
+			array( $this, 'display_settings_page' )  // callable function
+		);
+	}
+
+	/**
+ 	* Display the settings page content for the page we have created.
+ 	*
+ 	* @since    1.0.0
+ 	*/
+	public function display_settings_page() {
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/wp-get-remote-url-info-admin-display.php';
 
 	}
 
