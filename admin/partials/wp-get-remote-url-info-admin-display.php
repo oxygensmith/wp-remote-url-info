@@ -14,3 +14,13 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
+
+<div id="wrap">
+	<form method="post" action="options.php">
+		<?php
+			settings_fields( 'get-remote-url-info-settings' );
+			do_settings_sections( 'get-remote-url-info-save-settings' );
+			submit_button();
+		?>
+	</form>
+</div>

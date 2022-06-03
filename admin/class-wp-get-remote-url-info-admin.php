@@ -21,7 +21,7 @@
  * @author     Rob Butz <rob@oxygensmith.ca>
  */
 class Wp_Get_Remote_Url_Info_Admin {
-
+	// = Toptal Save Admin in plugin tutorial
 	/**
 	 * The ID of this plugin.
 	 *
@@ -129,6 +129,45 @@ class Wp_Get_Remote_Url_Info_Admin {
 	public function display_settings_page() {
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/wp-get-remote-url-info-admin-display.php';
+
+	}
+
+	/**
+	 * Register the settings for our settings page.
+	 *
+	 * @since    0.1
+	 */
+	public function register_settings() {
+
+		// Here we are going to register our setting.
+		register_setting(
+			$this->plugin_name . '-settings',
+			$this->plugin_name . '-settings',
+			array( $this, 'sandbox_register_setting' )
+		);
+
+		// Here we are going to add a section for our setting.
+		add_settings_section(
+			$this->plugin_name . '-settings-section',
+			__( 'Settings', 'get-remote-url-info-save' ),
+			array( $this, 'sandbox_add_settings_section' ),
+			$this->plugin_name . '-settings'
+		);
+
+		// Here we are going to add fields to our section.
+		add_settings_field(
+			'post-types',
+			__( 'Post Types', 'get-remote-url-info-save' ),
+			array( $this, 'sandbox_add_settings_field_multiple_checkbox' ),
+			$this->plugin_name . '-settings',
+			$this->plugin_name . '-settings-section',
+			array(
+				'label_for' => 'post-types',
+				'description' => __( 'Save button will be added only to the checked post types.', 'get-remote-url-info-save' )
+			)
+		);
+		
+		// ...
 
 	}
 
